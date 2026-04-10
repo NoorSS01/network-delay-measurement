@@ -1,0 +1,5 @@
+./pox.py my_controller
+sudo mn --topo linear,2 --controller=remote,ip=127.0.0.1,port=6633 --link tc,delay=10ms
+pingall
+h1 ping h2
+dpctl dump-flows
