@@ -31,57 +31,47 @@ We need to measure and analyze delay between hosts in a network using Mininet. W
 
 #Methodology
 
-##1. Network Setup
+1. Network Setup
 
 We use Mininet to create networks with hosts and switches.
 
-##2. Delay Configuration
+2. Delay Configuration
 
 We add delay using the command:
 
-```
+
 
 sudo mn --link tc delay=10ms
 
-```
 
-##3. Controller Integration
+
+3. Controller Integration
 
 We use POX controller with the command:
 
-```
-
 ./pox.py forwarding.l2_learning
-
-```
 
 We connect Mininet to the controller using:
 
-```
-
 sudo mn --controller=remote ip=127.0.0.1,port=6633
 
-```
 
-##4. Delay Measurement
+
+4. Delay Measurement
 
 We use ping command to measure delay:
 
-```
-
 h1 ping h2
 
-```
 
-##5. Flow Rule Observation
+
+5. Flow Rule Observation
 
 We observe flow rules using:
 
-```
-
 dpctl dump-flows
 
-```
+
 
 #Experiment Scenarios
 
@@ -89,11 +79,11 @@ dpctl dump-flows
 
 We create a network with a switch and 3 hosts using:
 
-```
+
 
 sudo mn --topo single,3 --link tc,delay=10ms
 
-```
+
 
 Observation:
 
@@ -105,11 +95,11 @@ Observation:
 
 We create a network with switches in a linear setup using:
 
-```
+
 
 sudo mn --topo linear,2 --controller=remote ip=127.0.0.1,port=6633 --link tc,delay=10ms
 
-```
+
 
 Observation:
 
@@ -151,11 +141,11 @@ Single Switch | h1 → h2 | ~50 ms      |
 
 Using:
 
-```
+
 
 dpctl dump-flows
 
-```
+
 
 We observe:
 
