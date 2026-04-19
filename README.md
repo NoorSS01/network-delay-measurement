@@ -188,3 +188,4 @@ Delay increases with path length and number of switches.
 Network delay. Depends on topology and traffic conditions.
 
 SDN using POX shows how a controller can manage the network.
+Custom POX controller (dealy_controller.py) is implemented to handle packet_in events and forward packets using OpenFlow rules.
