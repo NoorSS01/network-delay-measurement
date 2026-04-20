@@ -12,14 +12,15 @@ def _handle_ConnectionUp(event):
 def _handle_PacketIn(event):
     #getting packet info
     packet = event.parsed 
-    log.info("Packet received: %s -> %s", packet.src, packet.dst)
+    log.info("Packet received: %s -> %s", packet.src, packet.dst)#prints the packet info in terminal
 
-    
-    msg = of.ofp_packet_out()
+    #stores the flow rules in the switch
+    msg = of.ofp_packet_out() 
     msg.data = event.ofp
     msg.actions.append(of.ofp_action_output(port=of.OFPP_FLOOD))
     event.connection.send(msg)
 
+#To Launch
 def launch():
     core.openflow.addListenerByName("ConnectionUp", _handle_ConnectionUp)
     core.openflow.addListenerByName("PacketIn", _handle_PacketIn)
