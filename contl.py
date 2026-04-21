@@ -50,7 +50,7 @@ if __name__ == "__main__":
     analysis_report = analyze_delays(target_hosts)
 
     print("\n" + "="*40)
-    print("      NETWORK DELAY ANALYSIS REPORT")
+    print("      Network Delay Analysis Report")
     print("="*40)
 
     for host, stats in analysis_report.items():
